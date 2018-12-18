@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS | Comparisons and Conditionals</title>
+    <script>
+
+        var number1 = 2;
+        var number2 = 15;
+        var stringNum1 = "2";
+        var stringNum2 = "444";
+        var stringLength = stringNum2.length;
+
+        var result1 = number1 == stringNum1;
+        var result2 = number1 === stringNum2;
+        var result3 = number1 == stringLength;
+        var result4 = number1 < number2;
+        var result5 = number1 > number2;
+
+        console.log('result1 is: ', +result1);
+        console.log('result2 is: ', +result2);
+        console.log('result3 is: ', +result3);
+        console.log('result4 is: ', +result4);
+        console.log('result5 is: ', +result5);
+
+        var gameNumber = 64;
+        var userInput1 = 25;
+        var userInput2 = gameNumber;
+
+        if(userInput1 > gameNumber){
+            console.log('Number is too high');
+        }
+
+        if(userInput1 < gameNumber){
+            console.log('Number is too low');
+        }
+
+        if(userInput1 < 1 && userInput1 > 100){
+            console.log('Number is out of range');
+        }else{
+            console.log('Number is in range');
+        }
+
+        if(userInput2 = gameNumber){
+            console.log('Correct number has been guessed');
+        }else{
+            console.log('Try again');
+        }
+
+
+        var movement = 'hokey pokey';
+        var message = "";
+
+        switch(movement){
+            case 'forward':
+                message ="You've walked one step forward";
+                break;
+            case 'right':
+                message = "You've sidestepped to the right";
+                break;
+            case 'left':
+                message = "You've sidestepped to the left";
+                break;
+            case 'backward':
+                message = "You've walked one step backwards";
+                break;
+            case 'jump':
+                message ="You just jumped";
+                break;
+            case 'spin':
+                message = "You just did a spin";
+                break;
+            case 'hokey pokey':
+                message = "You did the hokey pokey";
+                break;
+            case 'slide':
+                message = "You did a slide";
+                break;
+            default:
+                message = "Where are you going?";
+                break;
+        }
+
+        console.log('Movement made: ' +message);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
