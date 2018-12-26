@@ -13,29 +13,61 @@ var students = {
     '#008': {name: 'Kate Winslet', class: 'Math 101', grade: 87}
 };
 
-function initializeApp(){
+function initializeApp() {
     console.log('Initializing App...');
 
-    
+    var forwardDiv = $('#forward-loop')
+    for (var numIndex = 0; numIndex < numbers.length; numIndex++ )
+         $('#forward-loop').append(numbers[numIndex] + ' ' );
 
-    
-    
+    var reverseDiv = $('#reverse-loop')
+    for (var numRevIndex = numbers.length - 1; numRevIndex >= 0; numRevIndex--)
+        $('#reverse-loop').append(numbers[numRevIndex] + ' ' );
+
     // Keep these at the bottom of initializeApp
     displayStudentData();
     buildGameBoard();
     populateNumbers(mixedArray);
 }
 
+
+
 function displayStudentData(){
-    
-}
+        var numberofStudents = 0;
+        var SumOfGrades = 0;
+        for (var studentObj in  students){
+            SumOfGrades += students[studentObj].grade;
+            numberofStudents += 1;
+        }
+        var gradeAvg = SumOfGrades / numberofStudents;
+        var finalAvg = gradeAvg.toString().substring(0, gradeAvg.toString().indexOf(".") + 3);
+
+        var objFinalResults = {'Number of Students': numberofStudents, 'Student Average ': finalAvg};
+
+    $('#student-count').text(numberofStudents);
+    $('#student-average').text(finalAvg + '%');
+    }
+
+
 
 function buildGameBoard(){
     var boardSize = { rows: 8, squares: 8 };
     var gameBoard = $('#game-board');
 
-    
+    for (iter = 0 ; iter < boardSize.rows; iter++){
+        var $div = $("<div>", {"class": "row"});
+        $("#game-board").append($div);
+
+        for(iter2 = 0 ; iter2 < boardSize.squares; iter2++){
+            var colorSquares;
+            if((iter2 + iter) % 2){colorSquares = "square dark";}
+            else{colorSquares = "square light";}
+                var $div2 = $("<div>", {"class": colorSquares});
+                $(".row:last-of-type").append($div2);
+        }
+    }
 }
+
 
 function bubbleSort(dataArray){
     
