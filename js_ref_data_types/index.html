@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS | Reference Data Types</title>
+    <script src="main.js"></script>
+    <script>
+        student_array = [ 'steve', 'nat', 'bruce', 'tony', 'clint', 'thor'];
+
+        console.log('The third student in the array is ' + student_array[2]);
+
+        console.log('Full Student Array: ', student_array);
+
+        console.log('There are ' + student_array.length + ' students in the student array');
+
+        student_array.push('Fred');
+        student_array.unshift('Nancy');
+
+        console.log('Full Student Array: ', student_array);
+
+        console.log('There are ' + student_array.length +  ' students in the array');
+
+        var questionStr = "ABC?"
+
+        var student = {}
+        student.firstName = 'EJ';
+        student.lastName = 'Padilla';
+        student.school = 'Learning Fuze';
+        student.age = 32;
+        student.questionQueue = [];
+        student.hasQuestion = false;
+
+
+        student.greeting = function (){
+            return "Hello, my name is " + student.firstName;
+        };
+
+        student.aboutMe = function (){
+            return "My full name is " + student.firstName + " " + student.lastName +" , I am " + student.age + " years old and I am a student at " + student.school;
+        };
+        student.askQuestion = function (newQuestion){
+            if(typeof newQuestion === 'string') {
+                if (newQuestion.indexOf('?') > -1) {
+                    student.questionQueue.push(newQuestion);
+                    student.hasQuestion = true;
+                }
+            }
+            return "A question has been added to your queue";
+        };
+
+        student.answerQuestion = function() {
+            if (student.questionQueue !== undefined && student.questionQueue.length > 0) {
+                var currentQuestion = student.questionQueue.splice(-1, 1);
+                return currentQuestion;
+            } else {
+                student.hasQuestion = false;
+                return "You have no questions in your queue";
+            }
+        }
+
+        console.log('Greet Test:', student.greeting());
+        console.log('AboutMe Test:', student.aboutMe());
+        console.log('Answer Question Test:', student.answerQuestion());
+        console.log('Ask Question Test:', student.askQuestion('Who is the real Hot Dog king?'));
+        console.log('Ask Question Test:', student.askQuestion('Why are there so many Hot Dogs?'));
+        console.log('Ask Question Test:', student.askQuestion('What are Hot dogs?'));
+        console.log('Answer Question Test:', student.answerQuestion());
+        console.log('Answer Question Test:', student.answerQuestion());
+        console.log('Answer Question Test:', student.answerQuestion());
+        console.log('Answer Question Test:', student.answerQuestion());
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
